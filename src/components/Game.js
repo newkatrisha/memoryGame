@@ -3,6 +3,7 @@ import Img from '../../src/square-png-25139.png';
 import PickedCard from '../components/PickedCard';
 
 const Game = () => {
+    console.log('hi');
     const [ cards, setCards ] = useState(
         [
         { id: 0, url: 'https://www.memozor.com/jeux/jquery/objects_diy/image0.jpg' },
