@@ -1,11 +1,14 @@
 import React from 'react';
-import Game from '../components/Game'
+import Board from './Board'
+import CardContextProvider from '../CardContext';
 
 
 function App() {
   return (
     <div className="App">
-      <Game />
+      <CardContextProvider>
+        <Board />
+      </CardContextProvider>
     </div>
   );
 }
