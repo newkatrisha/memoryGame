@@ -4,9 +4,9 @@ import propTypes from 'prop-types';
 import '../index.css';
 
 
-const PickedCard = ({card, onClick}) => {
+const PickedCard = ({card, onClick, src}) => {
     
-    const image = card.opened ? card.url : Img;
+    const image = card.opened ? src : Img;
     
     return(
         <div className='card'>

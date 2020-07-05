@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import PickedCard from './PickedCard';
 import { CardContext } from '../components/CardContext';
-import { find, open, disable } from '../utils/functions';
+import { find, open, disable, getSrcById } from '../utils/functions';
 import '../index.css';
 
 
@@ -40,6 +40,11 @@ const Board = () => {
         })) 
     }
 
+    const resetCards = () => {
+        setCard1(null);
+        setCard2(null);
+    }
+
     const onFailure = useCallback((card1, card2) => {
             
         setTimeout(() => {
@@ -65,13 +70,9 @@ const Board = () => {
 
     }, [cards,setScore,settmpOpened,score,setCards])
 
-    const resetCards = () => {
-        setCard1(null);
-        setCard2(null);
-    }
+    
    
     useEffect(() => {
-        console.log(tmpOpened);
         if (!card1 || !card2)
             return;
         else if (card1.url !== card2.url){
@@ -83,7 +84,12 @@ const Board = () => {
 
 
     const memoryCards = cards.map(card => {
-        return <PickedCard key={card.id} card={card} onClick={() => flipCard(card)} />
+        return <PickedCard 
+                    key={card.id} 
+                    card={card} 
+                    src = { getSrcById(card.id) }
+                    onClick={() => flipCard(card)} 
+                />
     })
 
     return (
