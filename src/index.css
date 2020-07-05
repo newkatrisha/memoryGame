@@ -1,19 +1,27 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient( #AED6F1, #3498DB);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App h1 {
+  text-align: center;
+  margin-top: 20px;
+  font: 60px bold;
+}
+.game p {
+  text-align: center;
+  margin-top: 10px;
+  font: 40px bold;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 160px);
+  grid-template-rows: repeat(6, 160px);
+  grid-gap: 10px; 
+  /* width: 100%;  */
+  justify-content: center;
 }
 
-.ui .segment {
-  background-color: grey;
-  border: 2px solid black;
-  
+.card img {
+  border-radius: 10px;
+  width: 100%;
 }
