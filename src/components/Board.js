@@ -81,9 +81,9 @@ const Board = () => {
     [cards, setScore, settmpOpened, score, setCards]
   );
 
-  useEffect(() => {
-      console.log('in use effect create board');
+  const newGame = () => {
     setBoardIndexes(getNewBoard());
+    setScore(0);
     const cards = [];
     for (var i = 0; i < WIDTH * HEIGHT; i++) {
       cards.push({
@@ -94,6 +94,11 @@ const Board = () => {
       });
     }
     setCards(cards);
+  }
+
+  useEffect(() => {
+      console.log('in use effect create board');
+    newGame();
   }, []);
 
   useEffect(() => {
@@ -105,6 +110,8 @@ const Board = () => {
       onSuccess(card1, card2);
     }
   }, [card1, card2, onFailure, onSuccess]);
+
+  
 
   const memoryCards = cards.map((card, i) => {
       console.log('in memory cards');
@@ -118,9 +125,12 @@ const Board = () => {
     );
   });
   console.log("here in board component");
+
+  const message = score < 100 ? <p>Score: {score}</p> : <p onClick={newGame}>You won!!! Click to play again!</p>
+
   return (
     <div className="game">
-      <p>Score: {score}</p>
+      {message}
       <div className="board">{memoryCards}</div>
     </div>
   );
